@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lattice — downstream-task-driven autonomous experiments for computational sensing and imaging. MIT senior-thesis project." />
+  <title>Lattice — Downstream-Task-Driven Autonomous Experiments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    html, body {
+      background-color: #0a0a0f;
+      font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Hide native video controls on hero (decorative background) */
+    #hero-video::-webkit-media-controls { display: none !important; }
+    #hero-video::-webkit-media-controls-enclosure { display: none !important; }
+    /* Smooth scroll for in-page anchors */
+    html { scroll-behavior: smooth; }
+    /* Subtle gradient overlay helper */
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0.85) 100%);
+    }
+    /* Focus ring */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #6366f1; /* indigo-500 */
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0f] text-slate-100 antialiased">
+
+  <!-- ========================================================== -->
+  <!-- 1. HERO                                                     -->
+  <!-- ========================================================== -->
+  <section id="hero" class="relative h-screen min-h-[640px] w-full overflow-hidden" aria-labelledby="hero-heading">
+    <video
+      id="hero-video"
+      autoplay muted loop playsinline preload="auto"
+      class="absolute inset-0 w-full h-full object-cover opacity-30">
+      <source src="assets/videos/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 hero-overlay"></div>
+
+    <div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center max-w-5xl mx-auto">
+      <p class="mb-6 text-xs uppercase tracking-[0.3em] text-indigo-300/80">MIT &middot; Senior Thesis Project</p>
+      <h1 id="hero-heading" class="text-5xl md:text-7xl font-bold tracking-tight">
+        <span class="text-indigo-400">Agent</span><span class="text-slate-100">Sim</span>
+      </h1>
+      <p class="mt-6 text-2xl md:text-3xl font-semibold text-slate-100 max-w-3xl">
+        Downstream-Task-Driven Autonomous Experiments
+      </p>
+      <p class="mt-6 text-base md:text-lg text-slate-300 max-w-2xl leading-relaxed">
+        The downstream reconstruction goal drives every upstream decision &mdash; from hypothesis
+        formulation to scene diversity to evaluation criteria. State a hypothesis. The system
+        generates data, trains and evaluates models, and iterates.
+      </p>
+      <p class="mt-3 text-sm text-slate-400">For computational sensing and imaging research.</p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#request-access" class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold transition-colors">
+          Request access
+        </a>
+        <a href="#what-it-does" class="inline-flex items-center justify-center px-8 py-3 rounded-lg border border-slate-500 hover:border-indigo-400 hover:text-indigo-300 text-slate-100 font-semibold transition-colors">
+          See it run &darr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== -->
+  <!-- 2. WHAT IT DOES                                             -->
+  <!-- ========================================================== -->
+  <section id="what-it-does" class="max-w-6xl mx-auto px-6 py-20" aria-labelledby="what-heading">
+    <header class="mb-12 text-center">
+      <p class="text-xs uppercase tracking-[0.3em] text-indigo-300/80 mb-3">What it does</p>
+      <h2 id="what-heading" class="text-3xl md:text-4xl font-bold tracking-tight text-slate-50">
+        Autonomous experiments, end to end
+      </h2>
+      <p class="mt-3 text-slate-400 max-w-2xl mx-auto">
+        Each clip below is a real run &mdash; the agent system formulated the hypothesis, generated the
+        scene, validated the physics, executed the simulation, and analyzed the result without
+        human intervention.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1: Localization -->
+      <article class="rounded-xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+        <video preload="metadata" autoplay muted loop playsinline class="w-full aspect-video object-cover bg-black">
+          <source src="assets/videos/localization.mp4" type="video/mp4" />
+        </video>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-100">3D + 2D localization</h3>
+          <p class="mt-1 text-sm text-slate-400">Tracks a basketball through 3D space and projects ground-truth bounding boxes back to the image plane.</p>
+        </div>
+      </article>
+
+      <!-- Card 2: People counting -->
+      <article class="rounded-xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+        <video preload="metadata" autoplay muted loop playsinline class="w-full aspect-video object-cover bg-black">
+          <source src="assets/videos/people_counting.mp4" type="video/mp4" />
+        </video>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-100">People counting</h3>
+          <p class="mt-1 text-sm text-slate-400">Multi-object detection in a synthetic indoor scene generated and evaluated entirely by the agent loop.</p>
+        </div>
+      </article>
+
+      <!-- Card 3: Physical understanding -->
+      <article class="rounded-xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+        <video preload="metadata" autoplay muted loop playsinline class="w-full aspect-video object-cover bg-black">
+          <source src="assets/videos/physical_understanding.mp4" type="video/mp4" />
+        </video>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-100">Physical understanding</h3>
+          <p class="mt-1 text-sm text-slate-400">A scene built from sensor + task + world primitives &mdash; the agents reason about each separately, then compose.</p>
+        </div>
+      </article>
+
+      <!-- Card 4: Sensor search -->
+      <article class="rounded-xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+        <video preload="metadata" autoplay muted loop playsinline class="w-full aspect-video object-cover bg-black">
+          <source src="assets/videos/sensor_search.mp4" type="video/mp4" />
+        </video>
+        <div class="p-5">
+          <h3 class="font-semibold text-slate-100">Sensor search</h3>
+          <p class="mt-1 text-sm text-slate-400">Knowledge-graph-driven search over the sensor/algorithm space &mdash; ranked by Cram&eacute;r-Rao feasibility.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================================== -->
+  <!-- 3. DIFFERENTIATORS                                          -->
+  <!-- ========================================================== -->
+  <section id="differentiators" class="bg-slate-950/60 border-y border-slate-800/50" aria-labelledby="diff-heading">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <header class="mb-12 text-center">
+        <p class="text-xs uppercase tracking-[0.3em] text-indigo-300/80 mb-3">What makes it different</p>
+        <h2 id="diff-heading" class="text-3xl md:text-4xl font-bold tracking-tight text-slate-50">
+          Three foundations
+        </h2>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Differentiator 1 -->
+        <article class="rounded-xl bg-slate-900/70 border border-slate-800 p-6">
+          <div class="text-indigo-400 text-3xl font-bold mb-3">01</div>
+          <h3 class="text-lg font-semibold text-slate-100 mb-2">Physics-first validation</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            A deterministic 7-step physics pipeline (units, ranges, equations, CFL stability,
+            mesh quality, paradigm rules) runs before any experiment executes &mdash; no LLM in the
+            validation loop.
+          </p>
+        </article>
+
+        <!-- Differentiator 2 -->
+        <article class="rounded-xl bg-slate-900/70 border border-slate-800 p-6">
+          <div class="text-indigo-400 text-3xl font-bold mb-3">02</div>
+          <h3 class="text-lg font-semibold text-slate-100 mb-2">Knowledge graph + CRB feasibility</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            A Neo4j sensor/algorithm knowledge graph stores Cram&eacute;r-Rao bounds and
+            cross-family physics relationships. Infeasible designs are filtered before they ever
+            burn a GPU cycle.
+          </p>
+        </article>
+
+        <!-- Differentiator 3 -->
+        <article class="rounded-xl bg-slate-900/70 border border-slate-800 p-6">
+          <div class="text-indigo-400 text-3xl font-bold mb-3">03</div>
+          <h3 class="text-lg font-semibold text-slate-100 mb-2">Physics capability algebra</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Sensors decompose into composable Fisher Information primitives. The system reasons
+            about <em>capabilities</em> &mdash; not products &mdash; enabling novel sensor discovery
+            from first principles.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== -->
+  <!-- 4. HOW IT WORKS                                             -->
+  <!-- ========================================================== -->
+  <section id="how-it-works" class="max-w-6xl mx-auto px-6 py-20" aria-labelledby="how-heading">
+    <header class="mb-12 text-center">
+      <p class="text-xs uppercase tracking-[0.3em] text-indigo-300/80 mb-3">How it works</p>
+      <h2 id="how-heading" class="text-3xl md:text-4xl font-bold tracking-tight text-slate-50">
+        The autonomous loop
+      </h2>
+      <p class="mt-3 text-slate-400 max-w-2xl mx-auto">
+        Hypothesis &rarr; Scene &rarr; Physics-validate &rarr; Execute &rarr; Analyze.
+        Iterate until the analyst agent says stop.
+      </p>
+    </header>
+
+    <ol class="grid grid-cols-1 md:grid-cols-4 gap-6 list-none">
+      <li class="rounded-xl bg-slate-900/60 border border-slate-800 p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-300 font-bold mb-4">1</div>
+        <h3 class="font-semibold text-slate-100">Hypothesis</h3>
+        <p class="mt-2 text-sm text-slate-400">A researcher states a downstream-task hypothesis. The agent formalizes it.</p>
+      </li>
+      <li class="rounded-xl bg-slate-900/60 border border-slate-800 p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-300 font-bold mb-4">2</div>
+        <h3 class="font-semibold text-slate-100">Scene</h3>
+        <p class="mt-2 text-sm text-slate-400">A scene-generation agent composes geometry, materials, sensor, and lighting.</p>
+      </li>
+      <li class="rounded-xl bg-slate-900/60 border border-slate-800 p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-300 font-bold mb-4">3</div>
+        <h3 class="font-semibold text-slate-100">Physics-validate</h3>
+        <p class="mt-2 text-sm text-slate-400">Deterministic checks reject impossible scenes. No LLM in the validation path.</p>
+      </li>
+      <li class="rounded-xl bg-slate-900/60 border border-slate-800 p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-300 font-bold mb-4">4</div>
+        <h3 class="font-semibold text-slate-100">Execute &amp; Analyze</h3>
+        <p class="mt-2 text-sm text-slate-400">Run the simulation, evaluate against the hypothesis, decide whether to iterate.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ========================================================== -->
+  <!-- 5. EMAIL CAPTURE                                            -->
+  <!-- ========================================================== -->
+  <section id="request-access" class="bg-slate-950/60 border-y border-slate-800/50" aria-labelledby="request-heading">
+    <div class="max-w-3xl mx-auto px-6 py-20">
+      <header class="mb-10 text-center">
+        <p class="text-xs uppercase tracking-[0.3em] text-indigo-300/80 mb-3">Get involved</p>
+        <h2 id="request-heading" class="text-3xl md:text-4xl font-bold tracking-tight text-slate-50">
+          Request early access
+        </h2>
+        <p class="mt-3 text-slate-400">
+          Drop your email and I&rsquo;ll reach out when there&rsquo;s something to share &mdash; collaborators,
+          beta users, and feedback all welcome.
+        </p>
+      </header>
+
+      <!-- TODO: replace YOUR_FORM_ID with real Formspree form ID after sign-up at https://formspree.io -->
+      <form
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        class="space-y-4">
+        <input type="hidden" name="_subject" value="Lattice — request access" />
+        <div>
+          <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+          <input
+            id="email" name="email" type="email" required autocomplete="email"
+            placeholder="you@example.com"
+            class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" />
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Note <span class="text-slate-500 font-normal">(optional)</span></label>
+          <textarea
+            id="message" name="message" rows="3"
+            placeholder="What would you use Lattice for?"
+            class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30 focus:outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold transition-colors">
+          Request access
+        </button>
+      </form>
+
+      <p class="mt-6 text-sm text-slate-400 text-center">
+        Or email <a class="text-indigo-300 hover:text-indigo-200 underline underline-offset-2" href="mailto:lapostolides3@gmail.com?subject=Lattice%20%E2%80%94%20request%20access">lapostolides3@gmail.com</a> directly.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================== -->
+  <!-- 6. QR + FOOTER                                              -->
+  <!-- ========================================================== -->
+  <section id="qr" class="max-w-6xl mx-auto px-6 py-20 text-center" aria-labelledby="qr-heading">
+    <h2 id="qr-heading" class="sr-only">Scan to revisit</h2>
+    <div class="inline-block">
+      <img
+        src="qr.png"
+        alt="QR code linking to this page"
+        class="w-48 h-48 bg-white p-2 rounded mx-auto"
+        width="192" height="192" />
+      <p class="mt-4 text-sm text-slate-400">Scan to revisit</p>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-800/50 py-10 text-center text-sm text-slate-500">
+    <p class="mb-2">
+      Built at MIT &middot;
+      <!-- TODO: replace # with real GitHub URL once the repo goes public -->
+      <a href="#" class="text-slate-400 hover:text-indigo-300 underline underline-offset-2">GitHub</a> &middot;
+      <a href="mailto:lapostolides3@gmail.com" class="text-slate-400 hover:text-indigo-300 underline underline-offset-2">Contact</a>
+    </p>
+    <p>&copy; 2026 Lattice &middot; MIT</p>
+  </footer>
+
+</body>
+</html>
