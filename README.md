@@ -27,7 +27,7 @@ not a bug.
    the expected URL is:
 
    ```
-   https://lapostolides3.github.io/lattice/
+   https://lattice-xcm3.onrender.com
    ```
 
 7. The `.nojekyll` file in this folder disables Jekyll processing on
@@ -49,7 +49,7 @@ form for users who prefer email or have JS / network restrictions.
 
 ## Regenerating the QR code
 
-The QR code currently encodes `https://lapostolides3.github.io/lattice/`.
+The QR code currently encodes `https://lattice-xcm3.onrender.com`.
 **Once you confirm the actual deployed URL, regenerate the QR.**
 
 ### Option A &mdash; `qrencode` (preferred, small + crisp PNG)
